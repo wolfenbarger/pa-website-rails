@@ -1,0 +1,1 @@
+awesomeApp = angular.module('awesomeApp',[]);
