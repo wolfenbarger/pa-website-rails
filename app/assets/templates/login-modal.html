@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h3 class="modal-title">Sign In</h3>
+    <hr>
+    <div>
+      <h5>ayy lmao</h5>
+      	<ul>
+			<li class="active" >
+				<div>
+					<a id="facebook-login" class="btn navbar-btn btn-block btn-social btn-facebook" href ng-click="ctrl.login('facebook')">
+						<i class="fa fa-facebook"></i> Login with Facebook
+					</a>
+				</div>
+			</li>
+			<li class="active">
+				<div>
+					<a id="google-login" class="btn navbar-btn btn-block btn-social btn-google" href ng-click="ctrl.login('google_oauth2')">
+						<i class="fa fa-google"></i> Login with Google
+					</a>
+				</div>
+			</li>
+		</ul>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="ctrl.cancel()">back</button>
+</div>
