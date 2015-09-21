@@ -1,10 +1,15 @@
 source 'https://rubygems.org'
 
+gem 'bundler', '>=1.8.4'
+
+gem 'sass'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 
-#gem 'sass-rails'
+
+gem 'bootstrap-sass'
+gem 'sass-rails'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -21,10 +26,11 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'bower-rails'
 gem 'angular-rails-templates'
 
+
 gem 'sprockets'
+gem 'sprockets-rails'
 
 gem 'therubyracer'
 gem 'devise'
@@ -40,7 +46,6 @@ group :production, :staging do
 end
 
 group :development, :test do
-  gem "rails_12factor"
 	gem "rspec-rails", "~> 2.0"
 	gem "factory_girl_rails", "~> 4.0"
 	gem "capybara"
@@ -54,4 +59,23 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
+
+# see https://rails-assets.org
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap-sass'
+  gem 'rails-assets-angular'
+  gem 'rails-assets-font-awesome'
+  gem 'rails-assets-bootstrap-social'
+  gem 'rails-assets-angular-cookies'
+  gem 'rails-assets-angular-ui-router'
+  gem 'rails-assets-angular-bootstrap'
+  gem 'rails-assets-leaflet'
+end
+
+
+
+
+
+
+
 
