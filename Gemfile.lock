@@ -48,9 +48,11 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.3.5)
+    bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.2.19)
+      sass (>= 3.3.0)
+    bootstrap-social-rails (4.8.0)
+      railties (>= 3.1)
     builder (3.2.2)
     byebug (6.0.2)
     capybara (2.5.0)
@@ -88,6 +90,8 @@ GEM
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.10)
+    font-awesome-rails (4.4.0.0)
+      railties (>= 3.2, < 5.0)
     foreman (0.78.0)
       thor (~> 0.19.1)
     globalid (0.3.6)
@@ -159,14 +163,7 @@ GEM
       rails-assets-angular (>= 1.0.8)
     rails-assets-bootstrap (3.3.5)
       rails-assets-jquery (>= 1.9.1)
-    rails-assets-bootstrap-sass (3.3.5)
-      rails-assets-jquery (>= 1.9.0)
-    rails-assets-bootstrap-social (4.10.1)
-      rails-assets-bootstrap (~> 3)
-      rails-assets-font-awesome (~> 4.4)
-    rails-assets-font-awesome (4.4.0)
     rails-assets-jquery (2.1.4)
-    rails-assets-leaflet (0.7.5)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -258,6 +255,7 @@ PLATFORMS
 DEPENDENCIES
   angular-rails-templates
   bootstrap-sass
+  bootstrap-social-rails
   bundler (>= 1.8.4)
   byebug
   capybara
@@ -265,6 +263,7 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_girl_rails (~> 4.0)
+  font-awesome-rails
   foreman
   jbuilder (~> 2.0)
   jquery-rails
@@ -277,10 +276,7 @@ DEPENDENCIES
   rails-assets-angular-bootstrap!
   rails-assets-angular-cookies!
   rails-assets-angular-ui-router!
-  rails-assets-bootstrap-sass!
-  rails-assets-bootstrap-social!
-  rails-assets-font-awesome!
-  rails-assets-leaflet!
+  rails-assets-bootstrap!
   rails_12factor
   rails_serve_static_assets
   rails_stdout_logging

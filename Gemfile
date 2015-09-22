@@ -7,9 +7,6 @@ gem 'sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 
-
-gem 'bootstrap-sass'
-gem 'sass-rails'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -60,16 +57,20 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
+
+
+gem 'bootstrap-sass'
+gem 'sass-rails'
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
+
 # see https://rails-assets.org
 source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap-sass'
+  gem 'rails-assets-bootstrap'
   gem 'rails-assets-angular'
-  gem 'rails-assets-font-awesome'
-  gem 'rails-assets-bootstrap-social'
   gem 'rails-assets-angular-cookies'
   gem 'rails-assets-angular-ui-router'
   gem 'rails-assets-angular-bootstrap'
-  gem 'rails-assets-leaflet'
 end
 
 

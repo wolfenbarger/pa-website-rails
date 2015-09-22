@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sass
+//= require bootstrap
 //= require angular
 //= require angular-cookies
 //= require angular-ui-router
