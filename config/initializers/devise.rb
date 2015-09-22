@@ -260,9 +260,6 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
-  config.secret_key_base = ENV["SECRET_KEY_BASE"];
-  config.secret_token = ENV["SECRET_TOKEN"];
-
   #Add your ID and secret here
   #ID first, secret second
   config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"]
