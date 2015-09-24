@@ -42,9 +42,10 @@ group :production, :staging do
 end
 
 group :development, :test do
-	gem "rspec-rails", "~> 2.0"
+	gem "rspec-rails"
 	gem "factory_girl_rails", "~> 4.0"
 	gem "capybara"
+  gem "chromedriver-helper"
 	gem "database_cleaner"
 	gem "selenium-webdriver"
   gem 'teaspoon-mocha'
