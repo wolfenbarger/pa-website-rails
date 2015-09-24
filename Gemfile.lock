@@ -54,7 +54,6 @@ GEM
     bootstrap-social-rails (4.8.0)
       railties (>= 3.1)
     builder (3.2.2)
-    byebug (6.0.2)
     capybara (2.5.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -140,6 +139,7 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.18.3)
+    phantomjs (1.9.8.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -158,6 +158,8 @@ GEM
     rails-assets-angular-bootstrap (0.13.4)
       rails-assets-angular (>= 1.3.0)
     rails-assets-angular-cookies (1.4.6)
+      rails-assets-angular (= 1.4.6)
+    rails-assets-angular-mocks (1.4.6)
       rails-assets-angular (= 1.4.6)
     rails-assets-angular-ui-router (0.2.15)
       rails-assets-angular (>= 1.0.8)
@@ -227,6 +229,10 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    teaspoon (1.0.2)
+      railties (>= 3.2.5, < 5)
+    teaspoon-mocha (2.2.4)
+      teaspoon (>= 1.0.0)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -257,7 +263,6 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap-social-rails
   bundler (>= 1.8.4)
-  byebug
   capybara
   coffee-rails (~> 4.1.0)
   database_cleaner
@@ -271,10 +276,12 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-google-oauth2
   pg
+  phantomjs
   rails (= 4.2.4)
   rails-assets-angular!
   rails-assets-angular-bootstrap!
   rails-assets-angular-cookies!
+  rails-assets-angular-mocks!
   rails-assets-angular-ui-router!
   rails-assets-bootstrap!
   rails_12factor
@@ -287,6 +294,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets
   sprockets-rails
+  teaspoon-mocha
   therubyracer
   uglifier (>= 1.3.0)
   web-console (~> 2.0)

@@ -1,4 +1,4 @@
-awesomeApp = angular.module('awesomeApp', [
+var awesomeApp = angular.module('awesomeApp', [
 	'ngCookies', 
 	'templates', 
 	'ui.router',
@@ -21,7 +21,7 @@ awesomeApp.config(['$stateProvider', '$locationProvider', function($stateProvide
 
 }]);
 
-controllers = angular.module('controllers',[
+var controllers = angular.module('controllers',[
 	'ui.bootstrap', 
 	'services'
 ]);
@@ -62,7 +62,7 @@ controllers.controller("LoginModalCtrl", ['$window', '$modalInstance', function(
     };
 }]);
 
-services = angular.module('services',[]);
+var services = angular.module('services',[]);
 
 services.factory("AuthService",['$cookies', function($cookies) {
     var authService = {};
