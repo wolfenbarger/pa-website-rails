@@ -69,6 +69,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    colorize (0.7.7)
     database_cleaner (1.5.0)
     debug_inspector (0.0.2)
     devise (3.5.2)
@@ -140,6 +141,9 @@ GEM
     orm_adapter (0.5.0)
     pg (0.18.3)
     phantomjs (1.9.8.0)
+    protractor-rails (0.0.17)
+      colorize
+      railties
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -277,6 +281,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   pg
   phantomjs
+  protractor-rails
   rails (= 4.2.4)
   rails-assets-angular!
   rails-assets-angular-bootstrap!
