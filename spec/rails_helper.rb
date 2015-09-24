@@ -8,8 +8,22 @@ require 'rspec/rails'
 require 'capybara/rails'
 
 
-Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+if ENV['TRAVIS']
+  Capybara.register_driver :selenium do |app|
+    capabilities = Selenium::WebDriver::Remote::Capabilities.send ENV["BROWSER"]
+    capabilities.version = ENV["VERSION"]
+    capabilities.platform = ENV["PLATFORM"]
+    capabilities['tunnel-identifier'] = ENV['TRAVIS_JOB_NUMBER']
+    capabilities['name'] = "Travis ##{ENV['TRAVIS_JOB_NUMBER']}"
+    Capybara::Selenium::Driver.new(app,
+      browser: :remote,
+      url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com/wd/hub",
+      desired_capabilities: capabilities)
+  end
+else
+  Capybara.register_driver :selenium do |app|
+    Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  end
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!
