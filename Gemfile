@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'bundler', '>=1.8.4'
+gem 'bundler'
 
 gem 'sass'
 
@@ -50,7 +50,7 @@ group :development, :test do
 	gem "selenium-webdriver"
   gem 'teaspoon-mocha'
   gem 'phantomjs'
-  gem 'sauce', '~> 3.1.1'
+  gem 'sauce'
   gem 'sauce-connect'
   gem 'parallel_tests'
 end
