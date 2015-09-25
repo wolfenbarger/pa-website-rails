@@ -1,6 +1,6 @@
 require 'rails_helper.rb'
 
-feature "Looking up recipes", js: true do
+feature "Looking up recipes", js: true, :sauce => true do
   scenario "finding recipes" do
     visit '/'
     #click_on "login-button"

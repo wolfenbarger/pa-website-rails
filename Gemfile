@@ -50,9 +50,6 @@ group :development, :test do
 	gem "selenium-webdriver"
   gem 'teaspoon-mocha'
   gem 'phantomjs'
-  gem 'sauce'
-  gem 'sauce-connect'
-  gem 'parallel_tests'
 end
 
 group :development do

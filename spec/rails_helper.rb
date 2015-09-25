@@ -7,25 +7,28 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 
-
 if ENV['TRAVIS']
-  require 'sauce'
-  require 'sauce/capybara'
+    capabilities = Selenium::WebDriver::Remote::Capabilities.send 'Chrome'
 
-  # change to "Capybara.default_driver = :sauce" to use sauce 
-  # for ALL feature specs, not just ones marked with "js: true"
-  Capybara.javascript_driver = :sauce
+    # Set the browser version. If this is nil, Sauce Labs will use the latest version.
+    capabilities.version = nil
 
-  Sauce.config do |config|
-    config[:browsers] = [
-      ['Linux', 'Chrome', nil],
-      # and other OS/browser combos you want to support...
-    ]
-  end
+    # Set the operation system.
+    capabilities.platform = 'Linux'
+
+    # Set the tunnel ID to connect to the identified Sauce Connect tunnel from Travis.
+    capabilities['tunnel-identifier'] = ENV['TRAVIS_JOB_NUMBER']
+
+    # Give the build a name in Sauce Labs so they aren't just all "Unnamed Job."
+    capabilities['name'] = "Travis ##{ENV['TRAVIS_JOB_NUMBER']}"
+
+    Capybara.register_driver :selenium do |app|
+        Capybara::Selenium::Driver.new(app,
+                                       browser: :remote,
+                                       url: "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com/wd/hub",
+                                       desired_capabilities: capabilities)
+    end
 else
-  Sauce.config do |config|
-    config[:start_tunnel] = false
-  end
   Capybara.register_driver :selenium do |app|
     Capybara::Selenium::Driver.new(app, :browser => :chrome)
   end
