@@ -42,3 +42,6 @@ public/assets
 # Ignore all logfiles.
 /log/*
 !/log/.keep
+
+# Ignore sauce connect log messages
+sauce_connect.log

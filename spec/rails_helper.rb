@@ -8,18 +8,28 @@ require 'rspec/rails'
 require 'capybara/rails'
 
 
-  caps = {
-    :platform => "Mac OS X 10.9",
-    :browserName => "Chrome",
-    :version => "31"
-  }
+if ENV['TRAVIS']
+  require 'sauce'
+  require 'sauce/capybara'
 
-  Capybara.register_driver :selenium do |app|
-    Capybara::Selenium::Driver.new(app,
-      browser: :remote,
-      url: "http://martinwolfenbarger:c22eb8b0-de86-47eb-96ba-7cd195e1b351@ondemand.saucelabs.com:80/wd/hub",
-      desired_capabilities: caps)
+  # change to "Capybara.default_driver = :sauce" to use sauce 
+  # for ALL feature specs, not just ones marked with "js: true"
+  Capybara.javascript_driver = :sauce
+
+  Sauce.config do |config|
+    config[:browsers] = [
+      ['Linux', 'Chrome', nil],
+      # and other OS/browser combos you want to support...
+    ]
   end
+else
+  Sauce.config do |config|
+    config[:start_tunnel] = false
+  end
+  Capybara.register_driver :selenium do |app|
+    Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  end
+end
 
 
 
