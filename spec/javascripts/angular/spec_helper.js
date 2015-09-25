@@ -42,6 +42,7 @@
 //= require support/bind-poly
 //= require application
 //= require support/chai
+//= require angular-mocks
 
 window.expect = chai.expect;
 

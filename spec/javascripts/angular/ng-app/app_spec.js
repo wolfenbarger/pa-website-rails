@@ -1,4 +1,7 @@
 describe('AuthCtrl', function() {
+	it('should work', function() {
+		expect(true).to.be.true;
+	});
 	var createController, $controller;
 	var WindowMock = {};
 	var ModalMock = {};
