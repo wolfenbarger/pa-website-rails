@@ -8,7 +8,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 
 if ENV['TRAVIS']
-    capabilities = Selenium::WebDriver::Remote::Capabilities.send 'Chrome'
+    capabilities = Selenium::WebDriver::Remote::Capabilities.send 'chrome'
 
     # Set the browser version. If this is nil, Sauce Labs will use the latest version.
     capabilities.version = nil
