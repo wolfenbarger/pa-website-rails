@@ -13,10 +13,8 @@ class ApplicationController < ActionController::Base
   		if current_user
   			cookies[:user_id] = current_user.id
 
-        # if we use cookies[:user_name] = current_user.name then the name get url encoded...
+        # if we use cookies[:user_name] = current_user.name then the name gets url encoded...
         response['set-cookie']="user_name="+current_user.name
-
-        puts cookies[:user_name]
 
   		else
   			cookies.delete(:user_id)
