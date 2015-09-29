@@ -1,4 +1,3 @@
-
 var controllers = angular.module('controllers',[
 	'ui.bootstrap', 
 	'services'
@@ -9,17 +8,12 @@ controllers.controller('AuthCtrl', ['$window', '$modal', 'AuthService', function
 	vm.user = AuthService.getUserInfo();
 
 	vm.openLoginModal = function() {
-        var modalInstance = $modal.open({
+        $modal.open({
             animation: true,
             templateUrl: 'login-modal.html',
             controller: 'LoginModalCtrl',
             controllerAs: 'ctrl',
             size: 'md'
-        });
-        modalInstance.result.then(function () {
-
-        }, function() {
-
         });
 	}
 	vm.logout = function() {
@@ -39,3 +33,10 @@ controllers.controller("LoginModalCtrl", ['$window', '$modalInstance', function(
         $modalInstance.dismiss();
     };
 }]);
+
+
+
+
+
+
+
