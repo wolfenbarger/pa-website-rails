@@ -1,7 +1,6 @@
 var services = angular.module('services',[]);
 
 services.factory("AuthService",['$cookies', function($cookies) {
-	
     var authService = {};
 	authService.isAuthenticated = function() {
 		return (typeof $cookies.get('user_id') !== 'undefined');
