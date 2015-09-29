@@ -43,6 +43,7 @@
 //= require application
 //= require support/chai
 //= require angular-mocks
+//= require support/sinon
 
 window.expect = chai.expect;
 
