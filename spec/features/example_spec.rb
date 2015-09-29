@@ -1,14 +1,31 @@
 require 'rails_helper.rb'
 
-feature "Looking up recipes", js: true, :sauce => true do
-  scenario "finding recipes" do
+include Warden::Test::Helpers
+Warden.test_mode!
+
+# sleep(inspection_time=3)
+
+
+
+feature "Logging Out", js: true, :sauce => true do
+  before(:each) do
+    @user = FactoryGirl.create(:user, name:"Test Name")
+    login_as @user, :scope => :user
+  end
+  scenario "Logging Out" do
     visit '/'
-    #click_on "login-button"
-    #click_on "facebook-login"
-    #fill_in "keywords", with: "baked"
-    #click_on "Search"
-	   expect(page).to have_content("Home View")
-    #expect(page).to have_content("Baked Potato")
-    #expect(page).to have_content("Baked Brussel Sprouts")
+    click_link('Test Name')
+    click_link('Sign Out')
+    expect(page).to have_content 'Sign In'
+  end
+end
+feature "Login Modal", js: true, :sauce => true do
+  scenario "Unathenticated user clicks 'Sign In' and then clicks back" do
+    visit '/'
+    click_link('Sign In')
+    expect(page).to have_link('Login with Facebook')
+    expect(page).to have_link('Login with Google')
+    click_button('back')
+    expect(page).to have_no_link('Login with Facebook')
   end
 end

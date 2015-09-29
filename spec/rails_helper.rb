@@ -6,6 +6,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
+require 'shoulda/matchers'
 
 if ENV['TRAVIS']
     capabilities = Selenium::WebDriver::Remote::Capabilities.send 'chrome'
@@ -80,4 +81,10 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+  config.include FactoryGirl::Syntax::Methods
 end
+
+
+
+
+
