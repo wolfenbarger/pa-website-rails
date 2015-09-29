@@ -13,21 +13,16 @@
 
 			<div ng-controller="AuthCtrl as authenticator">
 				<ul class="nav navbar-nav navbar-right" ng-hide="authenticator.user.isAuthenticated">
-
-					<!-- User NOT logged in so... google and facebook login buttons  -->
-					<li class="active" >
-						<div>
-							<a id="login-button" class="btn navbar-btn btn-block" href ng-click="authenticator.openLoginModal()">Sign In
-							</a>
-						</div>
+					<li>
+						<a id="login-button" href ng-click="authenticator.openLoginModal()">Sign In</a>
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" ng-show="authenticator.user.isAuthenticated">
-					<li class="dropdown" id="user-dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 
+					<li class="dropdown" id="user-dropdown" dropdown>
+						<a href="#" class="dropdown-toggle" dropdown-toggle role="button" aria-expanded="false"> 
 							{{ authenticator.user.name }}    <span class="glyphicon glyphicon-cog"></span>
 						</a>
-						<ul id="user-links" class="dropdown-menu" role="menu">
+						<ul id="user-links" class="dropdown-menu" dropdown-menu role="menu">
 							<li><a href="#">Nothing</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a href ng-click="authenticator.logout()">Sign Out</a></li>
