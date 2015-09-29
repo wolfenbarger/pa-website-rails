@@ -41,6 +41,7 @@ group :production, :staging do
   gem "rails_serve_static_assets"
 end
 
+
 group :development, :test do
 	gem "rspec-rails"
 	gem "factory_girl_rails", "~> 4.0"
@@ -50,6 +51,10 @@ group :development, :test do
 	gem "selenium-webdriver"
   gem 'teaspoon-mocha'
   gem 'phantomjs'
+end
+
+group :test do
+  gem 'shoulda-matchers'
 end
 
 group :development do
