@@ -7,6 +7,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 require 'shoulda/matchers'
+require 'devise'
 
 if ENV['TRAVIS']
     capabilities = Selenium::WebDriver::Remote::Capabilities.send 'chrome'
@@ -35,6 +36,24 @@ else
   end
 end
 
+OmniAuth.config.test_mode = true
+
+OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+  'uid' => '123545',
+  'provider' => 'facebook',
+  'info' => {
+    'name' => 'Testy Facebook Testerman',
+    'email' => 'test@pa.rails' 
+  }
+})
+OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
+  'uid' => '123545',
+  'provider' => 'google',
+  'info' => {
+    'name' => 'Testy Google Testerman',
+    'email' => 'test@pa.rails' 
+  }
+})
 
 
 # Add additional requires below this line. Rails is not loaded until this point!
