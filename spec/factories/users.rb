@@ -4,5 +4,6 @@ FactoryGirl.define do
     email 'test@example.com'
     password 'f4k3p455w0rd'
     id '12345'
+    is_admin false
   end
 end

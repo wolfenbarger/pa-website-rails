@@ -25,6 +25,7 @@ describe User do
 	    it { expect(user).to have_db_column(:uid).of_type(:string) }
 	    it { expect(user).to have_db_column(:name).of_type(:string) }
 	    it { expect(user).to have_db_column(:email).of_type(:string).with_options(default: "", null: false) }
+	    it { expect(user).to have_db_column(:is_admin).of_type(:boolean).with_options(default: false, null: false) }
 
 	    it { expect(user).to have_db_index(:email).unique(:true) }
 	    
