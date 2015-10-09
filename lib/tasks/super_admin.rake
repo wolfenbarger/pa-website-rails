@@ -2,12 +2,10 @@
 namespace :super_admin do
 
 	desc "Help"
-	task :help => [:environment] do |t, args|
+	task :help => [:environment] do |t|
 		puts " to list all users           rake super_admin:list_users   "
-		puts " to make a user an admin     rake super_admin:grant_admin_permission[x]   "
-		puts "    where x is the id of the user"
-		puts " to revoke admin privleges   rake super_admin:revoke_admin_permission[x]   "
-		puts "    where x is the id of the user"
+		puts " to make a user an admin     rake super_admin:grant_admin_permission[< user's id >]   "
+		puts " to revoke admin privleges   rake super_admin:revoke_admin_permission[< user's id >]   "
 	end
 
 	desc "Lists all users"
@@ -28,6 +26,7 @@ namespace :super_admin do
 			else
 				user.is_admin = true
 				user.save!
+				puts Hirb::Helpers::AutoTable.render user, :fields=>[:email, :name, :id, :is_admin]
 			end
 		end
 	end
@@ -43,6 +42,7 @@ namespace :super_admin do
 			else
 				user.is_admin = false
 				user.save!
+				puts Hirb::Helpers::AutoTable.render user, :fields=>[:email, :name, :id, :is_admin]
 			end
 		end
 	end
