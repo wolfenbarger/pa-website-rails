@@ -58,14 +58,13 @@ describe "super_admin:grant_admin_permission" do
 		allow(@user1).to receive(:save!)
 		allow(User).to receive(:find_by).with({:id=>1}).and_return(@user1)
 	end
-
-
 	
 	describe "init" do
         it { expect(subject.prerequisites).to include("environment") }
 	end
 
 	it "sets is_admin to true and saves the user" do
+		expect(@user1.is_admin).to eql(false)
 		subject.invoke(1)
 		expect(@user1.is_admin).to eql(true)
 		expect(@user1).to have_received(:save!)
