@@ -34,19 +34,46 @@ end
 describe "super_admin:grant_admin_permission" do
 	include_context "rake"
 
-	let(:user_record) { double("user record") }
-
 	before do
-		allow(User).to receive(:find_by).and_return(:user_record)
+		allow(STDOUT).to receive(:puts)
 	end
+
+
 	
 	describe "init" do
         it { expect(subject.prerequisites).to include("environment") }
 	end
 
-	it "retrieves the user with the given id" do
+	it "sets is_admin to true and saves the user" do
 		subject.invoke
-		expect(User).to have_received(:find_by)
+		expect(STDOUT).to have_received(:puts).with("usage: rake super_admin:grant_admin_permission[< user's id >]")
 	end
 end
+
+describe "super_admin:grant_admin_permission" do
+	include_context "rake"
+
+	before do
+		@user1 = FactoryGirl.create(:user)
+		allow(@user1).to receive(:save!)
+		allow(User).to receive(:find_by).with({:id=>1}).and_return(@user1)
+	end
+
+
+	
+	describe "init" do
+        it { expect(subject.prerequisites).to include("environment") }
+	end
+
+	it "sets is_admin to true and saves the user" do
+		subject.invoke(1)
+		expect(@user1.is_admin).to eql(true)
+		expect(@user1).to have_received(:save!)
+	end
+end
+
+
+
+
+
 

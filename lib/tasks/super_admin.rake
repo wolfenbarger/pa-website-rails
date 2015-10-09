@@ -19,23 +19,31 @@ namespace :super_admin do
 
 	desc "Grants a user admin permission"
 	task :grant_admin_permission, [:id] => [:environment] do |t, args|
-		user = User.find_by(id: args.id)
-		if !user
-			puts "No user found with id: #{args.id}"
+		if !args.id
+			puts "usage: rake super_admin:grant_admin_permission[< user's id >]"
 		else
-			user.is_admin = true
-			user.save!
+			user = User.find_by(id: args.id)
+			if !user
+				puts "No user found with id: #{args.id}"
+			else
+				user.is_admin = true
+				user.save!
+			end
 		end
 	end
 
 	desc "Revokes a user admin permission"
 	task :revoke_admin_permission, [:id] => [:environment] do |t, args|
-		user = User.find_by(id: args.id)
-		if !user
-			puts "No user found with id: #{args.id}"
+		if !args.id
+			puts "usage: rake super_admin:revoke_admin_permission[< user's id >]"
 		else
-			user.is_admin = false
-			user.save!
+			user = User.find_by(id: args.id)
+			if !user
+				puts "No user found with id: #{args.id}"
+			else
+				user.is_admin = false
+				user.save!
+			end
 		end
 	end
 
